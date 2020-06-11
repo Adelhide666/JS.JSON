@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS.JSON</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="Privat">
@@ -18,7 +18,8 @@
     </div>
 </body>
 <script>
-    var private = new XMLHttpRequest(); 
+    /*Задание 1*/
+   var private = new XMLHttpRequest(); 
     btn_1.addEventListener("click",sndFnc);
     
     
@@ -39,8 +40,7 @@
             console.log(obj);
             out_1.append(pri);
             }   }   }
-     
-     
+     /*Задание 2*/
      var alfabank= new XMLHttpRequest(); 
     btn_2.addEventListener("click",sndFnc_2);
     
@@ -61,8 +61,7 @@
             alfa.innerHTML = obj_2.rates[0].buyIso + "/" + obj_2.rates[0].sellIso + " " + "buy:" + obj_2.rates[0].buyRate+ " /sale:" + obj_2.rates[0].sellRate + " дата и время: " +obj_2.rates[0].date;
             console.log(obj_2);
             out_2.append(alfa);
-            }   
-    }   
-    }
+            }   }   }
+
 </script>
 </html>
