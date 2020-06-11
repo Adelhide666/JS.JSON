@@ -41,31 +41,28 @@
             }   }   }
      
      
-      var alfabank= new XMLHttpRequest(); 
+     var alfabank= new XMLHttpRequest(); 
     btn_2.addEventListener("click",sndFnc_2);
     
     
-    function sendRequest2(){ 
-	request2.open("GET", "https://developerhub.alfabank.by:8273/partner/1.0.0/public/rates");
-	request2.onreadystatechange = readResponse2;        
-	request2.send();
-}
-
-function readResponse2() {
-	if (request2.readyState == 4) {    
-		var status = request2.status;
-		if (status == 200) { 
-			obj = JSON.parse(request2.responseText);
-			console.log(obj);
-			let res = document.createElement("div");
-			if (obj.result.name === 'Unauthorized') {
-				res.innerHTML = "Error: " + obj.result.name + "<br/> Status code: " + obj.result.status + "<br/> Message:" + obj.result.message + "<br/>P.S.: Copy token form https://gorest.co.in/";
-			} else {
-				res.innerHTML = "Id: " + obj.result[0].id + " <br/>Album id: " + obj.result[0].album_id + "<br/>Title: " + obj.result[0].title + "<br/> Url:" + obj.result[0].url;
-			}
-			document.getElementById('out2').appendChild(res);
-		}
-	}
-}
+    function sndFnc_2(){ 
+        alfabank.open("GET", "https://developerhub.alfabank.by:8273/partner/1.0.0/public/rates");
+        alfabank.onreadystatechange = reqReadyStateChangeUpd_2;        
+        alfabank.send();
+    }
+    
+    
+    function reqReadyStateChangeUpd_2() {
+    if (alfabank.readyState == 4) {    
+        var status_2 = alfabank.status;
+        if (status_2 == 200) { 
+            obj_2 = JSON.parse(alfabank.responseText);
+            let alfa = document.createElement("div");
+            alfa.innerHTML = obj_2.rates[0].buyIso + "/" + obj_2.rates[0].sellIso + " " + "buy:" + obj_2.rates[0].buyRate+ " /sale:" + obj_2.rates[0].sellRate + " дата и время: " +obj_2.rates[0].date;
+            console.log(obj_2);
+            out_2.append(alfa);
+            }   
+    }   
+    }
 </script>
 </html>
